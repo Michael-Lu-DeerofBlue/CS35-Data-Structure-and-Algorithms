@@ -1,0 +1,34 @@
+Answer the following questions by modifying this text file.  Write
+your answers between each question.  You're not being graded or judged
+on these answers.
+
+1. What is your name?  What do you prefer to be called?
+Michael Lu.
+
+
+2. Why are you taking CS35?
+I am a cs major and I want to learn this course so that i can learn more high
+level courses.
+
+
+3. What is your previous experience in Computer Science?  What
+programming languages do you know, and which classes have you taken?
+I learnt cs31, and i know C and python.
+
+
+4. These are a couple questions about how you approach your assignments.
+
+  a. Do you start on your homework as soon as it is assigned or do you
+  tend to finish it right before it's due?
+  I start is as soon as it is assigned.
+  
+  
+  b. When doing group work, do you prefer for your group to split your
+  work up into pieces or do you like to work together as a group
+  through as much of the material as possible?
+  I prefer to work together.
+
+
+
+5. What do you consider fun?
+Challenging yet not frustrating lab assignments.

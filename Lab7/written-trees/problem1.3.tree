@@ -1,0 +1,9 @@
+      7
+  4      8
+             12
+            9
+: The above is  the tree before balancing
+      8
+  7      12
+4       9
+: The above is  the tree after balancing

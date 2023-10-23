@@ -1,0 +1,21 @@
+        8
+    6       7
+  5   4   6   4
+ 2 1 3 2 4 10
+ : The above is the tree before bubble up. 
+
+ : This is bubble up step 1:
+         8
+    6       7
+  5   4   10   4
+ 2 1 3 2 4  6
+  : This is bubble up step 2:
+         8
+    6       10
+  5   4   7   4
+ 2 1 3 2 4 6
+  : This is bubble up step 3:
+         10
+    6       8
+  5   4   7   4
+ 2 1 3 2 4 6

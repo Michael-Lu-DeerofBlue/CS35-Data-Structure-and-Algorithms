@@ -1,0 +1,180 @@
+% This LaTeX file contains your written lab questions.  You may answer
+% these questions just by inserting your answer into this document.
+%
+% If you're unfamiliar with LaTeX, see the document LearningLaTeX.tex
+% in this same directory.  It contains a brief explanation and a few
+% snippets of LaTeX code to get you started; in fact, it should have
+% everything you need to complete this assignment.
+
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{enumitem}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+
+\begin{document}
+
+    \section{QuickSort}
+
+    See the source code file \texttt{quickSort.cpp} and the tests
+    given in \texttt{tests.cpp}. No written response is needed for
+    this part of the lab.
+
+    \section{Big-O Proofs}
+
+    \vspace{2mm}
+    \noindent {\large\textbf{Problem 1.}} Show that $8n^3+7n^2-12$ is $O(n^3)$.
+
+\begin{proof}
+    Assume $n>0$ and $n\in\mathbb{Z}$. Observe
+
+    $$
+    \begin{cases}
+      8n^3\leq 8n^3\\
+      7n^2\leq 7n^3\\
+      -12\leq 0\\  
+    \end{cases}
+    $$
+
+    Notice $8n^3+7n^2-12\leq 8n^3+7n^3=\underbrace{15}_{c}n^3$.
+    Therefore, $8n^3+7n^2-12$ is $O(n^3)$ when $n_0=1, c=15$.
+
+\end{proof}
+
+    \vspace{1cm}
+    \noindent {\large\textbf{Problem 2.}} Show that $6n^2-n+4$ is $O(n^2)$.
+
+    \begin{proof}
+        Assume $n>0$ and $n\in\mathbb{Z}$. Observe
+    
+        $$
+        \begin{cases}
+          6n^2\leq 6n^2\\
+          -n\leq 0\\
+          4\leq 4n^2\\  
+        \end{cases}
+        $$
+    
+        Notice $6n^2-n+4\leq 6n^2+4n^2=\underbrace{10}_{c}n^2$.
+        Therefore, $6n^2-n+4$ is $O(n^2)$ when $n_0=1, c=10$.
+    
+    \end{proof}
+
+    \newpage
+    \vspace{1cm}
+    \section{Mystery Functions}
+
+    %%%%%%%%%%%%%%
+    %%%% TODO %%%%
+    %%%%%%%%%%%%%%
+    % Give your Big-O analysis of each of the mystery functions here.
+\begin{enumerate}[label=\Alph*]
+    \item \begin{lstlisting}
+    Function fnA(n):
+        For i In 1 To n/2:
+            Set a To i
+        EndFor
+    EndFunction
+    \end{lstlisting}
+
+        We claim that \lstinline|fnA(n)| is $O(n)$. Inside the first loop there is only one step of constant time, and the bigger loop has $\frac{n}{2}$ steps. 
+        Thus, the program can be generalized as $O(n)$.
+
+    \item \begin{lstlisting}
+    Function fnB(n):
+        For i In 1 to n:
+            For j In 1 to n:
+                Set a To i
+            EndFor
+        EndFor
+    EndFunction
+    \end{lstlisting}
+
+    We claim that \lstinline|fnB(n)| is $O(n^2)$. Observe the program consists of a nested loop, while the outer loop executes $n$ times, the inner loop executes $n$ times. The command inside the inner loop is only one step of constant time. Thus, the outer loop executes $n$ times over the inner loop that runs for $n$ times, which conforms with $O(n^2)$.
+
+    \item \begin{lstlisting}
+    Function fnC(n):
+        For i In 1 to n:
+            Set j To 1
+            While j < n:
+                Set j To j*2
+            EndWhile
+        EndFor
+    EndFunction
+    \end{lstlisting}
+
+    We claim that \lstinline|fnC(n)| is $O(n\log n)$. The program is complicated by a for loop that runs $n$ times and a while loop inside. We interpret that the while loop exits after $\log_2 n$ times, because each iteration the variable \lstinline|j| approaches \lstinline|n| doubly faster than the last iteration. As \lstinline|i| gets larger linearly by virtue of the for loop, it takes less time for the while loop to end.
+
+    \newpage
+
+    \item \begin{lstlisting}
+    Function fnD(n):
+        For i In 1 to n*n:
+            For j In 1 to n*n:
+                Set a To j
+            EndFor
+        EndFor
+    EndFunction
+    \end{lstlisting}
+
+    We claim that \lstinline|fnD(n)| is $O(n^4)$. The program is quite akin to \lstinline|fnB(n)|, while the only difference is that both the inner and the outer loop takes $n^2$ steps instead. Consequently, the overall execution would take a $n^2 \cdot n^2=n^4$ time.
+
+
+    \item \begin{lstlisting}
+    Function fnE(n):
+        For j In 1 To 4:
+            Set a To i
+        EndFor
+    EndFunction
+    \end{lstlisting}
+
+    We claim that \lstinline|fnE(n)| is $O(1)$. Whatever $n$ is does not affect the running time of the program, given that $n$ is not involved in the execution of the for loop, which indicates that the program is of constant time. 
+
+    \item \begin{lstlisting}
+    Function fnF(n):
+        Set i To 0
+        While i < n*n*n:
+            Set i To i + 1
+        EndWhile
+    EndFunction
+    \end{lstlisting}
+
+    We claim that \lstinline|fnF(n)| is $O(n^3)$. Since \lstinline|i| always starts with a value of $0$, the while loop should always take \lstinline|n*n*n| folds.
+\end{enumerate}
+
+
+    % After your explanations, list the mystery functions A-E in sorted
+    % order from fastest to slowest.
+
+    We claim the sorted order of the functions from fastest to slowests is
+
+    $$
+    E<A<C<B<F<D
+    $$
+    
+\end{document}
